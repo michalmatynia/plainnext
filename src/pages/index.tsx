@@ -2,7 +2,7 @@ import type { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { AppBar } from '@components/mui'
 
-export async function getStaticProps() {
+export function getStaticProps() {
   return {
     props: {},
     revalidate: 4 * 60 * 60,
