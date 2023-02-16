@@ -15,6 +15,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    // mui rules
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    // end mui rules
     "paths": {
       "@common": ["framework/common"],
       "@common/*": ["framework/common/*"],

@@ -7,7 +7,6 @@
   },
   "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
   "parser": "@babel/eslint-parser",
-
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
@@ -36,19 +35,19 @@
       "parserOptions": {
         "project": ["./tsconfig.json"] // Specify it only for TypeScript files
       }
-    },
-    {
-      "files": ["postcss.config.js", "tailwind.config.js"],
-      "parserOptions": {
-        "sourceType": "module"
-      }
     }
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": true
-    // "tsconfigRootDir": "__dirname"
+    "project": true,
+    "requireConfigFile": false,
+    "babelOptions": {
+      "babelrc": false,
+      "configFile": false,
+      // your babel options
+      "presets": ["@babel/preset-env"]
+    }
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
