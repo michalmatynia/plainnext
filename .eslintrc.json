@@ -1,6 +1,16 @@
 {
-  "extends": "next/core-web-vitals",
-  "rules": {
-    "prefer-const": "error"
-  }
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier" // Add "prettier" last. This will turn off eslint rules conflicting with prettier. This is not what will format our code.
+  ],
+  "parserOptions": {
+    "project": true,
+    "tsconfigRootDir": "__dirname"
+  },
+  "root": true
 }
