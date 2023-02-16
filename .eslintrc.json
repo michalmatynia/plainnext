@@ -1,16 +1,69 @@
 {
-  "plugins": ["@typescript-eslint"],
-  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "amd": true,
+    "node": true
+  },
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
+  "parser": "@babel/eslint-parser",
+
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@next/next/recommended",
+    "plugin:react-hooks/recommended",
     "prettier" // Add "prettier" last. This will turn off eslint rules conflicting with prettier. This is not what will format our code.
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"], // Your TypeScript files extension
+      "parser": "@typescript-eslint/parser",
+
+      // As mentioned in the comments, you should extend TypeScript plugins here,
+      // instead of extending them outside the `overrides`.
+      // If you don't want to extend any rules, you don't need an `extends` attribute.
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+
+      "parserOptions": {
+        "project": ["./tsconfig.json"] // Specify it only for TypeScript files
+      }
+    },
+    {
+      "files": ["postcss.config.js", "tailwind.config.js"],
+      "parserOptions": {
+        "sourceType": "module"
+      }
+    }
+  ],
   "parserOptions": {
-    "project": true,
-    "tsconfigRootDir": "__dirname"
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": true
+    // "tsconfigRootDir": "__dirname"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": ["error"],
+    // "@typescript-eslint/explicit-function-return-type": "off",
+
+    // "react/jsx-no-constructed-context-values": "off", //
+    // "react/destructuring-assignment": "off",
+    // "react/prop-types": "off",
+    // "react/jsx-props-no-spreading": "off",
+    // "jsx-a11y/anchor-is-valid": "off",
+
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+    // semi: ["error", "always"],
   },
   "root": true
 }
