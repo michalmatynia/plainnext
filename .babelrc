@@ -1,0 +1,4 @@
+{
+  "presets": ["next/babel"],
+  "plugins": ["@emotion"] // @emotino MUST BE first plugin in Babel configuration
+}

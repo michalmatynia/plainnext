@@ -1,11 +1,6 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
-  "/api/hello": "pages/api/hello.js",
   "/_error": "pages/_error.js",
-  "/": "pages/index.js",
-  "/en-US/404": "pages/en-US/404.html",
-  "/es/404": "pages/es/404.html",
-  "/en-US/500": "pages/en-US/500.html",
-  "/es/500": "pages/es/500.html"
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js"
 }

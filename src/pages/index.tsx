@@ -1,6 +1,7 @@
+import { EmotionButton, StyledEmotionButton } from '@components/ui'
 import type { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
-import { AppBar } from '@components/ctui'
+// import { AppBar } from '@components/ui'
 
 export function getStaticProps() {
   return {
@@ -18,7 +19,9 @@ export default function Home(): InferGetStaticPropsType<typeof getStaticProps> {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AppBar />
+      dvdfd
+      <EmotionButton />
+      <StyledEmotionButton />
     </>
   )
 }
