@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.16.2",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.9",
@@ -24,15 +24,24 @@
     "express": "^4.18.2",
     "js-cookie": "^3.0.1",
     "keen-slider": "^6.8.5",
+    "moment": "2.29.4",
     "next": "13.1.6",
+    "nouislider": "15.7.0",
+    "prop-types": "15.8.1",
     "react": "18.2.0",
+    "react-datetime": "3.2.0",
     "react-dom": "18.2.0",
-    "swr": "^2.0.3"
+    "react-slick": "0.29.0",
+    "sass": "1.58.2",
+    "styled-components": "5.3.6",
+    "swr": "^2.0.3",
+    "tss-react": "^4.6.0",
+    "webpack": "5.75.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/eslint-parser": "^7.19.1",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
     "@types/body-scroll-lock": "^3.1.0",
     "@types/js-cookie": "^3.0.2",
     "@types/node": "18.13.0",
@@ -46,6 +55,8 @@
     "eslint": "^8.34.0",
     "eslint-config-next": "^13.1.6",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
@@ -54,7 +65,7 @@
     "postcss-cli": "^10.1.0",
     "postcss-nesting": "^11.2.1",
     "prettier": "^2.8.4",
-    "tailwindcss": "^3.2.6",
+    "tailwindcss": "^3.2.7",
     "typescript": "4.9.5"
   }
 }

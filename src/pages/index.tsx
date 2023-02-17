@@ -1,6 +1,6 @@
 import type { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
-import { AppBar } from '@components/mui'
+import { AppBar } from '@components/ctui'
 
 export function getStaticProps() {
   return {
@@ -18,7 +18,6 @@ export default function Home(): InferGetStaticPropsType<typeof getStaticProps> {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      Try2
       <AppBar />
     </>
   )

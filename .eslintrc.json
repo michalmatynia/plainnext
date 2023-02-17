@@ -5,11 +5,18 @@
     "amd": true,
     "node": true
   },
-  "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
+    "import",
+    "prettier"
+  ],
   "parser": "@babel/eslint-parser",
   "extends": [
-    "next/core-web-vitals",
     "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:import/recommended",
     "plugin:@next/next/recommended",
     "plugin:react-hooks/recommended",
     "prettier" // Add "prettier" last. This will turn off eslint rules conflicting with prettier. This is not what will format our code.
@@ -29,11 +36,22 @@
       // If you don't want to extend any rules, you don't need an `extends` attribute.
       "extends": [
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:import/typescript"
       ],
 
       "parserOptions": {
         "project": ["./tsconfig.json"] // Specify it only for TypeScript files
+      },
+      "settings": {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+          }
+        }
       }
     }
   ],
@@ -46,7 +64,7 @@
       "babelrc": false,
       "configFile": false,
       // your babel options
-      "presets": ["@babel/preset-env"]
+      "presets": ["@babel/preset-react"]
     }
   },
   "rules": {

@@ -1,7 +1,7 @@
 // import s from "./Button.module.css";
 
 import { ButtonHTMLAttributes, FC, ReactNode, useState } from 'react'
-import cn from 'classnames'
+import cx from 'classnames'
 import { styled, alpha } from '@mui/material/styles'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'

@@ -5,7 +5,7 @@ exports.id = 405;
 exports.ids = [405];
 exports.modules = {
 
-/***/ 50:
+/***/ 523:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -22,350 +22,163 @@ var jsx_runtime_ = __webpack_require__(997);
 ;// CONCATENATED MODULE: external "next/head"
 const head_namespaceObject = require("next/head");
 var head_default = /*#__PURE__*/__webpack_require__.n(head_namespaceObject);
-// EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(689);
-;// CONCATENATED MODULE: external "@mui/material/styles"
-const styles_namespaceObject = require("@mui/material/styles");
-;// CONCATENATED MODULE: external "@mui/material/AppBar"
-const AppBar_namespaceObject = require("@mui/material/AppBar");
-var AppBar_default = /*#__PURE__*/__webpack_require__.n(AppBar_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/material/Box"
-const Box_namespaceObject = require("@mui/material/Box");
-var Box_default = /*#__PURE__*/__webpack_require__.n(Box_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/material/Toolbar"
-const Toolbar_namespaceObject = require("@mui/material/Toolbar");
-var Toolbar_default = /*#__PURE__*/__webpack_require__.n(Toolbar_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/material/IconButton"
-const IconButton_namespaceObject = require("@mui/material/IconButton");
-var IconButton_default = /*#__PURE__*/__webpack_require__.n(IconButton_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/material/Typography"
-const Typography_namespaceObject = require("@mui/material/Typography");
-var Typography_default = /*#__PURE__*/__webpack_require__.n(Typography_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/material/InputBase"
-const InputBase_namespaceObject = require("@mui/material/InputBase");
-var InputBase_default = /*#__PURE__*/__webpack_require__.n(InputBase_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/material/Badge"
-const Badge_namespaceObject = require("@mui/material/Badge");
-var Badge_default = /*#__PURE__*/__webpack_require__.n(Badge_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/material/MenuItem"
-const MenuItem_namespaceObject = require("@mui/material/MenuItem");
-var MenuItem_default = /*#__PURE__*/__webpack_require__.n(MenuItem_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/material/Menu"
-const Menu_namespaceObject = require("@mui/material/Menu");
-var Menu_default = /*#__PURE__*/__webpack_require__.n(Menu_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/icons-material/Menu"
-const icons_material_Menu_namespaceObject = require("@mui/icons-material/Menu");
-var icons_material_Menu_default = /*#__PURE__*/__webpack_require__.n(icons_material_Menu_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/icons-material/Search"
-const Search_namespaceObject = require("@mui/icons-material/Search");
-var Search_default = /*#__PURE__*/__webpack_require__.n(Search_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/icons-material/AccountCircle"
-const AccountCircle_namespaceObject = require("@mui/icons-material/AccountCircle");
-var AccountCircle_default = /*#__PURE__*/__webpack_require__.n(AccountCircle_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/icons-material/Mail"
-const Mail_namespaceObject = require("@mui/icons-material/Mail");
-var Mail_default = /*#__PURE__*/__webpack_require__.n(Mail_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/icons-material/Notifications"
-const Notifications_namespaceObject = require("@mui/icons-material/Notifications");
-var Notifications_default = /*#__PURE__*/__webpack_require__.n(Notifications_namespaceObject);
-;// CONCATENATED MODULE: external "@mui/icons-material/MoreVert"
-const MoreVert_namespaceObject = require("@mui/icons-material/MoreVert");
-var MoreVert_default = /*#__PURE__*/__webpack_require__.n(MoreVert_namespaceObject);
-;// CONCATENATED MODULE: ./components/mui/AppBar/AppBar.tsx
-// import s from "./Button.module.css";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Search = (0,styles_namespaceObject.styled)("div")(({ theme  })=>({
-        position: "relative",
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: (0,styles_namespaceObject.alpha)(theme.palette.common.white, 0.15),
-        "&:hover": {
-            backgroundColor: (0,styles_namespaceObject.alpha)(theme.palette.common.white, 0.25)
-        },
-        marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: "100%",
-        [theme.breakpoints.up("sm")]: {
-            marginLeft: theme.spacing(3),
-            width: "auto"
-        }
-    }));
-const SearchIconWrapper = (0,styles_namespaceObject.styled)("div")(({ theme  })=>({
-        padding: theme.spacing(0, 2),
-        height: "100%",
-        position: "absolute",
-        pointerEvents: "none",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-    }));
-const StyledInputBase = (0,styles_namespaceObject.styled)((InputBase_default()))(({ theme  })=>({
-        color: "inherit",
-        "& .MuiInputBase-input": {
-            padding: theme.spacing(1, 1, 1, 0),
-            // vertical padding + font size from searchIcon
-            paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-            transition: theme.transitions.create("width"),
-            width: "100%",
-            [theme.breakpoints.up("md")]: {
-                width: "20ch"
-            }
-        }
-    }));
-const PrimarySearchAppBar = ()=>{
-    //   return (
-    //     <button className={cn(className, s.root)} type="button" {...rest}>
-    //       {children}
-    //     </button>
-    //   );
-    const [anchorEl, setAnchorEl] = (0,external_react_.useState)(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = (0,external_react_.useState)(null);
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-    const handleProfileMenuOpen = (event)=>{
-        setAnchorEl(event.currentTarget);
-    };
-    const handleMobileMenuClose = ()=>{
-        setMobileMoreAnchorEl(null);
-    };
-    const handleMenuClose = ()=>{
-        setAnchorEl(null);
-        handleMobileMenuClose();
-    };
-    const handleMobileMenuOpen = (event)=>{
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
-    const menuId = "primary-search-account-menu";
-    const renderMenu = /*#__PURE__*/ (0,jsx_runtime_.jsxs)((Menu_default()), {
-        anchorEl: anchorEl,
-        anchorOrigin: {
-            vertical: "top",
-            horizontal: "right"
-        },
-        id: menuId,
-        keepMounted: true,
-        transformOrigin: {
-            vertical: "top",
-            horizontal: "right"
-        },
-        open: isMenuOpen,
-        onClose: handleMenuClose,
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx((MenuItem_default()), {
-                onClick: handleMenuClose,
-                children: "Profile"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx((MenuItem_default()), {
-                onClick: handleMenuClose,
-                children: "My account"
-            })
-        ]
-    });
-    const mobileMenuId = "primary-search-account-menu-mobile";
-    const renderMobileMenu = /*#__PURE__*/ (0,jsx_runtime_.jsxs)((Menu_default()), {
-        anchorEl: mobileMoreAnchorEl,
-        anchorOrigin: {
-            vertical: "top",
-            horizontal: "right"
-        },
-        id: mobileMenuId,
-        keepMounted: true,
-        transformOrigin: {
-            vertical: "top",
-            horizontal: "right"
-        },
-        open: isMobileMenuOpen,
-        onClose: handleMobileMenuClose,
-        children: [
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)((MenuItem_default()), {
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx((IconButton_default()), {
-                        size: "large",
-                        "aria-label": "show 4 new mails",
-                        color: "inherit",
-                        children: /*#__PURE__*/ jsx_runtime_.jsx((Badge_default()), {
-                            badgeContent: 4,
-                            color: "error",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx((Mail_default()), {})
-                        })
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("p", {
-                        children: "Messages"
-                    })
-                ]
-            }),
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)((MenuItem_default()), {
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx((IconButton_default()), {
-                        size: "large",
-                        "aria-label": "show 17 new notifications",
-                        color: "inherit",
-                        children: /*#__PURE__*/ jsx_runtime_.jsx((Badge_default()), {
-                            badgeContent: 17,
-                            color: "error",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx((Notifications_default()), {})
-                        })
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("p", {
-                        children: "Notifications"
-                    })
-                ]
-            }),
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)((MenuItem_default()), {
-                onClick: handleProfileMenuOpen,
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx((IconButton_default()), {
-                        size: "large",
-                        "aria-label": "account of current user",
-                        "aria-controls": "primary-search-account-menu",
-                        "aria-haspopup": "true",
-                        color: "inherit",
-                        children: /*#__PURE__*/ jsx_runtime_.jsx((AccountCircle_default()), {})
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("p", {
-                        children: "Profile"
-                    })
-                ]
-            })
-        ]
-    });
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)((Box_default()), {
-        sx: {
-            flexGrow: 1
-        },
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx((AppBar_default()), {
-                position: "static",
-                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)((Toolbar_default()), {
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx((IconButton_default()), {
-                            size: "large",
-                            edge: "start",
-                            color: "inherit",
-                            "aria-label": "open drawer",
-                            sx: {
-                                mr: 2
-                            },
-                            children: /*#__PURE__*/ jsx_runtime_.jsx((icons_material_Menu_default()), {})
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx((Typography_default()), {
-                            variant: "h6",
-                            noWrap: true,
-                            component: "div",
-                            sx: {
-                                display: {
-                                    xs: "none",
-                                    sm: "block"
-                                }
-                            },
-                            children: "MUI"
-                        }),
-                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)(Search, {
-                            children: [
-                                /*#__PURE__*/ jsx_runtime_.jsx(SearchIconWrapper, {
-                                    children: /*#__PURE__*/ jsx_runtime_.jsx((Search_default()), {})
-                                }),
-                                /*#__PURE__*/ jsx_runtime_.jsx(StyledInputBase, {
-                                    placeholder: "Search…",
-                                    inputProps: {
-                                        "aria-label": "search"
-                                    }
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx((Box_default()), {
-                            sx: {
-                                flexGrow: 1
-                            }
-                        }),
-                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)((Box_default()), {
-                            sx: {
-                                display: {
-                                    xs: "none",
-                                    md: "flex"
-                                }
-                            },
-                            children: [
-                                /*#__PURE__*/ jsx_runtime_.jsx((IconButton_default()), {
-                                    size: "large",
-                                    "aria-label": "show 4 new mails",
-                                    color: "inherit",
-                                    children: /*#__PURE__*/ jsx_runtime_.jsx((Badge_default()), {
-                                        badgeContent: 4,
-                                        color: "error",
-                                        children: /*#__PURE__*/ jsx_runtime_.jsx((Mail_default()), {})
-                                    })
-                                }),
-                                /*#__PURE__*/ jsx_runtime_.jsx((IconButton_default()), {
-                                    size: "large",
-                                    "aria-label": "show 17 new notifications",
-                                    color: "inherit",
-                                    children: /*#__PURE__*/ jsx_runtime_.jsx((Badge_default()), {
-                                        badgeContent: 17,
-                                        color: "error",
-                                        children: /*#__PURE__*/ jsx_runtime_.jsx((Notifications_default()), {})
-                                    })
-                                }),
-                                /*#__PURE__*/ jsx_runtime_.jsx((IconButton_default()), {
-                                    size: "large",
-                                    edge: "end",
-                                    "aria-label": "account of current user",
-                                    "aria-controls": menuId,
-                                    "aria-haspopup": "true",
-                                    onClick: handleProfileMenuOpen,
-                                    color: "inherit",
-                                    children: /*#__PURE__*/ jsx_runtime_.jsx((AccountCircle_default()), {})
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx((Box_default()), {
-                            sx: {
-                                display: {
-                                    xs: "flex",
-                                    md: "none"
-                                }
-                            },
-                            children: /*#__PURE__*/ jsx_runtime_.jsx((IconButton_default()), {
-                                size: "large",
-                                "aria-label": "show more",
-                                "aria-controls": mobileMenuId,
-                                "aria-haspopup": "true",
-                                onClick: handleMobileMenuOpen,
-                                color: "inherit",
-                                children: /*#__PURE__*/ jsx_runtime_.jsx((MoreVert_default()), {})
-                            })
-                        })
-                    ]
-                })
-            }),
-            renderMobileMenu,
-            renderMenu
-        ]
-    });
+;// CONCATENATED MODULE: ./components/ctui/AppBar/AppBar.js
+// import React from 'react'
+// import Link from 'next/link'
+// // nodejs library that concatenates classes
+// import classNames from 'classnames'
+// // nodejs library to set properties for components
+// import PropTypes from 'prop-types'
+// // @material-ui/core components
+// import { makeStyles } from '@material-ui/core/styles'
+// import AppBar from '@material-ui/core/AppBar'
+// import Toolbar from '@material-ui/core/Toolbar'
+// import IconButton from '@material-ui/core/IconButton'
+// import Button from '@material-ui/core/Button'
+// import Hidden from '@material-ui/core/Hidden'
+// import Drawer from '@material-ui/core/Drawer'
+// // @material-ui/icons
+// import Menu from '@material-ui/icons/Menu'
+// // core components
+// import styles from '/styles/jss/nextjs-material-kit/components/headerStyle.js'
+// const useStyles = makeStyles(styles)
+// export default function Header(props) {
+//   const classes = useStyles()
+//   const [mobileOpen, setMobileOpen] = React.useState(false)
+//   React.useEffect(() => {
+//     if (props.changeColorOnScroll) {
+//       window.addEventListener('scroll', headerColorChange)
+//     }
+//     return function cleanup() {
+//       if (props.changeColorOnScroll) {
+//         window.removeEventListener('scroll', headerColorChange)
+//       }
+//     }
+//   })
+//   const handleDrawerToggle = () => {
+//     setMobileOpen(!mobileOpen)
+//   }
+//   const headerColorChange = () => {
+//     const { color, changeColorOnScroll } = props
+//     const windowsScrollTop = window.pageYOffset
+//     if (windowsScrollTop > changeColorOnScroll.height) {
+//       document.body
+//         .getElementsByTagName('header')[0]
+//         .classList.remove(classes[color])
+//       document.body
+//         .getElementsByTagName('header')[0]
+//         .classList.add(classes[changeColorOnScroll.color])
+//     } else {
+//       document.body
+//         .getElementsByTagName('header')[0]
+//         .classList.add(classes[color])
+//       document.body
+//         .getElementsByTagName('header')[0]
+//         .classList.remove(classes[changeColorOnScroll.color])
+//     }
+//   }
+//   const { color, rightLinks, leftLinks, brand, fixed, absolute } = props
+//   const appBarClasses = classNames({
+//     [classes.appBar]: true,
+//     [classes[color]]: color,
+//     [classes.absolute]: absolute,
+//     [classes.fixed]: fixed,
+//   })
+//   const brandComponent = (
+//     <Link href="/components" as="/components">
+//       <Button className={classes.title}>{brand}</Button>
+//     </Link>
+//   )
+//   return (
+//     <AppBar className={appBarClasses}>
+//       <Toolbar className={classes.container}>
+//         {leftLinks !== undefined ? brandComponent : null}
+//         <div className={classes.flex}>
+//           {leftLinks !== undefined ? (
+//             <Hidden smDown implementation="css">
+//               {leftLinks}
+//             </Hidden>
+//           ) : (
+//             brandComponent
+//           )}
+//         </div>
+//         <Hidden smDown implementation="css">
+//           {rightLinks}
+//         </Hidden>
+//         <Hidden mdUp>
+//           <IconButton
+//             color="inherit"
+//             aria-label="open drawer"
+//             onClick={handleDrawerToggle}
+//           >
+//             <Menu />
+//           </IconButton>
+//         </Hidden>
+//       </Toolbar>
+//       <Hidden mdUp implementation="js">
+//         <Drawer
+//           variant="temporary"
+//           anchor={'right'}
+//           open={mobileOpen}
+//           classes={{
+//             paper: classes.drawerPaper,
+//           }}
+//           onClose={handleDrawerToggle}
+//         >
+//           <div className={classes.appResponsive}>
+//             {leftLinks}
+//             {rightLinks}
+//           </div>
+//         </Drawer>
+//       </Hidden>
+//     </AppBar>
+//   )
+// }
+// Header.defaultProp = {
+//   color: 'white',
+// }
+// Header.propTypes = {
+//   color: PropTypes.oneOf([
+//     'primary',
+//     'info',
+//     'success',
+//     'warning',
+//     'danger',
+//     'transparent',
+//     'white',
+//     'rose',
+//     'dark',
+//   ]),
+//   rightLinks: PropTypes.node,
+//   leftLinks: PropTypes.node,
+//   brand: PropTypes.string,
+//   fixed: PropTypes.bool,
+//   absolute: PropTypes.bool,
+//   // this will cause the sidebar to change the color from
+//   // props.color (see above) to changeColorOnScroll.color
+//   // when the window.pageYOffset is heigher or equal to
+//   // changeColorOnScroll.height and then when it is smaller than
+//   // changeColorOnScroll.height change it back to
+//   // props.color (see above)
+//   changeColorOnScroll: PropTypes.shape({
+//     height: PropTypes.number.isRequired,
+//     color: PropTypes.oneOf([
+//       'primary',
+//       'info',
+//       'success',
+//       'warning',
+//       'danger',
+//       'transparent',
+//       'white',
+//       'rose',
+//       'dark',
+//     ]).isRequired,
+//   }),
+// }
+const AppBar = ()=>{
+    return null;
 };
-/* harmony default export */ const AppBar = (PrimarySearchAppBar);
-
-;// CONCATENATED MODULE: ./components/mui/AppBar/index.ts
-
-
-;// CONCATENATED MODULE: ./components/mui/index.ts
-
+/* harmony default export */ const AppBar_AppBar = (AppBar);
 
 ;// CONCATENATED MODULE: ./src/pages/index.tsx
 
@@ -399,7 +212,7 @@ function Home() {
                     })
                 ]
             }, "head"),
-            /*#__PURE__*/ jsx_runtime_.jsx(AppBar, {})
+            /*#__PURE__*/ jsx_runtime_.jsx(AppBar_AppBar, {})
         ]
     });
 } // import Head from 'next/head'
@@ -524,13 +337,6 @@ function Home() {
 
 /***/ }),
 
-/***/ 689:
-/***/ ((module) => {
-
-module.exports = require("react");
-
-/***/ }),
-
 /***/ 997:
 /***/ ((module) => {
 
@@ -545,7 +351,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(50));
+var __webpack_exports__ = (__webpack_exec__(523));
 module.exports = __webpack_exports__;
 
 })();
