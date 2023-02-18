@@ -18,7 +18,7 @@ const Button = styled.button<IButtonProps>`
 `
 
 const StyledEmotionButton: FC = () => {
-  return <Button backgroundColor="green">Thisis my button styled</Button>
+  return <Button backgroundColor="green">This is my button styled</Button>
 }
 
 export default StyledEmotionButton
