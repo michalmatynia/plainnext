@@ -40,13 +40,10 @@ interface Props {
 //   },
 // });
 
-type StyledAppBarProps = AppBarProps & {
-  [key in AllowedColor]: CSSProperties
-} & {
+interface StyledAppBarProps extends AppBarProps {
   appBar?: boolean
   fixed?: boolean
   absolute?: boolean
-  drawerPaper?: object
 }
 const classes = { appBar: `appBar` }
 
@@ -70,16 +67,17 @@ const StyledAppBar = styled(AppBar, {
   }),
   ...(fixed && {
     position: 'fixed',
-    color: 'blue',
     ...styles.fixed,
   }),
   ...(absolute && {
     position: 'absolute',
     ...styles.absolute,
   }),
-  ...(color && {
-    ...styles[color],
-  }),
+  ...(color === 'primary' && { ...styles.primary }),
+  ...(color === 'info' && { ...styles.info }),
+  ...(color === 'primary' && { ...styles.primary }),
+  ...(color === 'primary' && { ...styles.primary }),
+
   // [`& .${classes.active}`]: {
   //   color: theme.palette.action.hover,
   //   '& hover': {
