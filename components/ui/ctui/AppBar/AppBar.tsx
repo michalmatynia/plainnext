@@ -40,10 +40,20 @@ interface Props {
 //   },
 // });
 
-interface StyledAppBarProps extends AppBarProps {
+interface StyledAppBarProps extends Omit<AppBarProps, 'color'> {
   appBar?: boolean
   fixed?: boolean
   absolute?: boolean
+  color?:
+    | 'primary'
+    | 'info'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'transparent'
+    | 'white'
+    | 'rose'
+    | 'dark'
 }
 const classes = { appBar: `appBar` }
 
@@ -73,10 +83,11 @@ const StyledAppBar = styled(AppBar, {
     position: 'absolute',
     ...styles.absolute,
   }),
-  ...(color === 'primary' && { ...styles.primary }),
-  ...(color === 'info' && { ...styles.info }),
-  ...(color === 'primary' && { ...styles.primary }),
-  ...(color === 'primary' && { ...styles.primary }),
+
+  // ...(color === 'primary' && { ...styles.primary }),
+  // ...(color === 'info' && { ...styles.info }),
+  // ...(color === 'primary' && { ...styles.primary }),
+  // ...(color === 'primary' && { ...styles.primary }),
 
   // [`& .${classes.active}`]: {
   //   color: theme.palette.action.hover,
