@@ -40,20 +40,12 @@ interface Props {
 //   },
 // });
 
-interface StyledAppBarProps extends Omit<AppBarProps, 'color'> {
+interface StyledAppBarProps
+  extends Omit<AppBarProps, 'classes' | 'color' | 'position'> {
   appBar?: boolean
   fixed?: boolean
   absolute?: boolean
-  color?:
-    | 'primary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'transparent'
-    | 'white'
-    | 'rose'
-    | 'dark'
+  color?: string
 }
 const classes = { appBar: `appBar` }
 
@@ -63,7 +55,36 @@ const StyledAppBar = styled(AppBar, {
     prop !== 'absolute' &&
     prop !== 'fixed' &&
     prop !== 'color',
-})<StyledAppBarProps>(({ appBar, absolute, fixed, color, theme }) => ({
+})<StyledAppBarProps>(({ appBar, absolute, fixed, color, theme }) => {
+  let stylesToApplyColor = {}
+
+  switch (color) {
+    case 'primary':
+      stylesToApplyColor = { ...stylesToApplyColor, ...styles.primary }
+      break
+    case 'info':
+      stylesToApplyColor = { ...stylesToApplyColor, ...styles.info }
+      break
+    // add cases for other color values here
+    default:
+      break
+  }
+
+  return {
+    ...(appBar && {
+      position: 'relative',
+      ...styles.appBar,
+    }),
+    ...(fixed && {
+      position: 'fixed',
+      ...styles.fixed,
+    }),
+    ...(absolute && {
+      position: 'absolute',
+      ...styles.absolute,
+    }),
+    ...stylesToApplyColor,
+  }
   // ...(appBar && {
   //   [`& .${classes.appBar}`]: {
   //     position: 'relative',
@@ -71,23 +92,21 @@ const StyledAppBar = styled(AppBar, {
   //     // ...styles.appBar,
   //   },
   // }),
-  ...(appBar && {
-    position: 'relative',
-    ...styles.appBar,
-  }),
-  ...(fixed && {
-    position: 'fixed',
-    ...styles.fixed,
-  }),
-  ...(absolute && {
-    position: 'absolute',
-    ...styles.absolute,
-  }),
+  // ...(appBar && {
+  //   position: 'relative',
+  //   ...styles.appBar,
+  // }),
+  // ...(fixed && {
+  //   position: 'fixed',
+  //   ...styles.fixed,
+  // }),
+  // ...(absolute && {
+  //   position: 'absolute',
+  //   ...styles.absolute,
+  // })
 
   // ...(color === 'primary' && { ...styles.primary }),
   // ...(color === 'info' && { ...styles.info }),
-  // ...(color === 'primary' && { ...styles.primary }),
-  // ...(color === 'primary' && { ...styles.primary }),
 
   // [`& .${classes.active}`]: {
   //   color: theme.palette.action.hover,
@@ -95,7 +114,7 @@ const StyledAppBar = styled(AppBar, {
   //     color: 'green',
   //   },
   // },
-}))
+})
 
 const CreativeTimAppBar: FC<Props> = (
   props
