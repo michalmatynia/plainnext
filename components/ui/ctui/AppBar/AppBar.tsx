@@ -9,18 +9,9 @@ import Button from '@mui/material/Button'
 import AppBar, { AppBarProps } from '@mui/material/AppBar'
 import { IconButton } from '@mui/material'
 import { styled } from '@mui/material/styles'
-
+import { AllowedColor } from '../../../../types/styleTypes/nextjs-material-kit/colors'
 import MenuIcon from '@mui/icons-material/Menu'
-type AllowedColor =
-  | 'primary'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'danger'
-  | 'transparent'
-  | 'white'
-  | 'rose'
-  | 'dark'
+import styles from '../../../../styles/jss/nextjs-material-kit/components/headerStyle.js'
 
 interface Props {
   changeColorOnScroll?: {
@@ -33,17 +24,7 @@ interface Props {
   brand?: string
   fixed?: boolean
   absolute?: boolean
-  a: string
 }
-
-/* EXAMPLE CODE 
-bardziej zaawansowane type
-*/
-
-// type ActionButtonProps = Omit<ButtonProps, 'variant'> & {
-//   component?: ElementType,
-//   [key:string]: string,
-// }
 
 /* EXAMPLE CODE */
 // const CustomSlider = styled(Slider)({
@@ -60,36 +41,22 @@ bardziej zaawansowane type
 // });
 
 interface StyledAppBarProps extends AppBarProps {
-  wariant?: boolean
-  appbar?: boolean
+  appBar?: boolean
+  fixed?: boolean
 }
 const classes = { active: `active` }
 
-const appBarStyle = {
-  display: 'flex',
-  border: '0',
-  borderRadius: '3px',
-  padding: '0.625rem 0',
-  marginBottom: '20px',
-  color: '#555',
-  width: '100%',
-  backgroundColor: '#fff',
-  boxShadow:
-    '0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)',
-  transition: 'all 150ms ease 0s',
-  alignItems: 'center',
-  flexFlow: 'row nowrap',
-  justifyContent: 'flex-start',
-  zIndex: 'unset',
-}
-
 const StyledAppBar = styled(AppBar, {
-  shouldForwardProp: (prop) => prop !== 'wariant' && prop !== 'appbar',
-})<StyledAppBarProps>(({ wariant, appbar, theme }) => ({
-  ...(appbar && {
-    position: 'relative',
-    ...appBarStyle,
-  }),
+  shouldForwardProp: (prop) => prop !== 'appbar' && prop !== 'fixed',
+})<StyledAppBarProps>(({ appBar, absolute, fixed, theme }) => ({
+  // ...(appBar && {
+  //   position: 'relative',
+  //   ...styles.appBar,
+  // }),
+  // ...(fixed && {
+  //   position: 'fixed',
+  //   ...styles.fixed,
+  // }),
   // [`& .${classes.active}`]: {
   //   color: theme.palette.action.hover,
   //   '& hover': {
@@ -102,8 +69,6 @@ const CreativeTimAppBar: FC<Props> = (
   props
 ): React.ReactElement<AppBarProps> => {
   const [mobileOpen, setMobileOpen] = useState(false)
-
-  console.log(props.a)
 
   // useEffect(() => {
   //   if (props.changeColorOnScroll) {
@@ -139,7 +104,7 @@ const CreativeTimAppBar: FC<Props> = (
 
   // If a="zolty" apply styles
   return (
-    <StyledAppBar appbar>
+    <StyledAppBar appBar>
       <IconButton color="inherit" aria-label="open drawer">
         vdf
         <MenuIcon />

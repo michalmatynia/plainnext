@@ -15,7 +15,7 @@ export function getStaticProps() {
 export default function Home(): InferGetStaticPropsType<typeof getStaticProps> {
   return (
     <>
-      <CreativeTimAppBar a="zolty" />
+      <CreativeTimAppBar />
     </>
   )
 }
