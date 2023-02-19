@@ -13,13 +13,10 @@ export function getStaticProps() {
 }
 
 export default function Home(): InferGetStaticPropsType<typeof getStaticProps> {
-  return (
-    <>
-      <CreativeTimAppBar />
-    </>
-  )
+  return <>Welcome to Page</>
 }
 
+/* FOR REMOVAL */
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import { Inter } from '@next/font/google'

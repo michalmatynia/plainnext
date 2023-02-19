@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { FC, useState, useEffect, ReactNode } from 'react'
+import React, { FC, useState, useEffect, ReactNode, CSSProperties } from 'react'
 import classNames from 'classnames'
 
 // -------- NEW IMPORTS
@@ -40,23 +40,46 @@ interface Props {
 //   },
 // });
 
-interface StyledAppBarProps extends AppBarProps {
+type StyledAppBarProps = AppBarProps & {
+  [key in AllowedColor]: CSSProperties
+} & {
   appBar?: boolean
   fixed?: boolean
+  absolute?: boolean
+  drawerPaper?: object
 }
-const classes = { active: `active` }
+const classes = { appBar: `appBar` }
 
 const StyledAppBar = styled(AppBar, {
-  shouldForwardProp: (prop) => prop !== 'appbar' && prop !== 'fixed',
-})<StyledAppBarProps>(({ appBar, absolute, fixed, theme }) => ({
+  shouldForwardProp: (prop) =>
+    prop !== 'appBar' &&
+    prop !== 'absolute' &&
+    prop !== 'fixed' &&
+    prop !== 'color',
+})<StyledAppBarProps>(({ appBar, absolute, fixed, color, theme }) => ({
   // ...(appBar && {
-  //   position: 'relative',
-  //   ...styles.appBar,
+  //   [`& .${classes.appBar}`]: {
+  //     position: 'relative',
+  //     color: 'blue',
+  //     // ...styles.appBar,
+  //   },
   // }),
-  // ...(fixed && {
-  //   position: 'fixed',
-  //   ...styles.fixed,
-  // }),
+  ...(appBar && {
+    position: 'relative',
+    ...styles.appBar,
+  }),
+  ...(fixed && {
+    position: 'fixed',
+    color: 'blue',
+    ...styles.fixed,
+  }),
+  ...(absolute && {
+    position: 'absolute',
+    ...styles.absolute,
+  }),
+  ...(color && {
+    ...styles[color],
+  }),
   // [`& .${classes.active}`]: {
   //   color: theme.palette.action.hover,
   //   '& hover': {
@@ -70,20 +93,38 @@ const CreativeTimAppBar: FC<Props> = (
 ): React.ReactElement<AppBarProps> => {
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  // useEffect(() => {
-  //   if (props.changeColorOnScroll) {
-  //     window.addEventListener('scroll', headerColorChange)
-  //   }
-  //   return function cleanup() {
-  //     if (props.changeColorOnScroll) {
-  //       window.removeEventListener('scroll', headerColorChange)
-  //     }
-  //   }
-  // })
-  // const handleDrawerToggle = (): void => {
-  //   setMobileOpen(!mobileOpen)
-  // }
-
+  useEffect(() => {
+    if (props.changeColorOnScroll) {
+      window.addEventListener('scroll', headerColorChange)
+    }
+    return function cleanup() {
+      if (props.changeColorOnScroll) {
+        window.removeEventListener('scroll', headerColorChange)
+      }
+    }
+  })
+  const handleDrawerToggle = (): void => {
+    setMobileOpen(!mobileOpen)
+  }
+  const headerColorChange = () => {
+    const { color, changeColorOnScroll } = props
+    const windowsScrollTop = window.pageYOffset
+    if (windowsScrollTop > changeColorOnScroll.height) {
+      document.body
+        .getElementsByTagName('header')[0]
+        .classList.remove(classes[color])
+      document.body
+        .getElementsByTagName('header')[0]
+        .classList.add(classes[changeColorOnScroll.color])
+    } else {
+      document.body
+        .getElementsByTagName('header')[0]
+        .classList.add(classes[color])
+      document.body
+        .getElementsByTagName('header')[0]
+        .classList.remove(classes[changeColorOnScroll.color])
+    }
+  }
   // const { color, rightLinks, leftLinks, brand, fixed, absolute } = props
 
   // const buttonStyle = {}
@@ -106,7 +147,6 @@ const CreativeTimAppBar: FC<Props> = (
   return (
     <StyledAppBar appBar>
       <IconButton color="inherit" aria-label="open drawer">
-        vdf
         <MenuIcon />
       </IconButton>
     </StyledAppBar>
