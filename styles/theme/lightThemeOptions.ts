@@ -54,6 +54,9 @@ const lightThemeOptions: ThemeOptions = {
   },
   palette: {
     mode: 'light',
+    action: {
+      hover: 'secondary',
+    },
   },
 }
 

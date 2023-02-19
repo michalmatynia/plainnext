@@ -35,6 +35,17 @@ interface Props {
   absolute?: boolean
   a: string
 }
+
+/* EXAMPLE CODE 
+bardziej zaawansowane type
+*/
+
+// type ActionButtonProps = Omit<ButtonProps, 'variant'> & {
+//   component?: ElementType,
+//   [key:string]: string,
+// }
+
+/* EXAMPLE CODE */
 // const CustomSlider = styled(Slider)({
 //   width: 300,
 //   color: 'var(--color)',
@@ -49,16 +60,42 @@ interface Props {
 // });
 
 interface StyledAppBarProps extends AppBarProps {
-  wariant?: string
+  wariant?: boolean
+  appbar?: boolean
+}
+const classes = { active: `active` }
+
+const appBarStyle = {
+  display: 'flex',
+  border: '0',
+  borderRadius: '3px',
+  padding: '0.625rem 0',
+  marginBottom: '20px',
+  color: '#555',
+  width: '100%',
+  backgroundColor: '#fff',
+  boxShadow:
+    '0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)',
+  transition: 'all 150ms ease 0s',
+  alignItems: 'center',
+  flexFlow: 'row nowrap',
+  justifyContent: 'flex-start',
+  zIndex: 'unset',
 }
 
 const StyledAppBar = styled(AppBar, {
-  shouldForwardProp: (prop) => prop !== 'wariant',
-})<StyledAppBarProps>(({ wariant, theme }) => ({
-  ...(wariant &&
-    {
-      // the overrides added when the new prop is used
-    }),
+  shouldForwardProp: (prop) => prop !== 'wariant' && prop !== 'appbar',
+})<StyledAppBarProps>(({ wariant, appbar, theme }) => ({
+  ...(appbar && {
+    position: 'relative',
+    ...appBarStyle,
+  }),
+  // [`& .${classes.active}`]: {
+  //   color: theme.palette.action.hover,
+  //   '& hover': {
+  //     color: 'green',
+  //   },
+  // },
 }))
 
 const CreativeTimAppBar: FC<Props> = (
@@ -100,32 +137,14 @@ const CreativeTimAppBar: FC<Props> = (
   //   </Link>
   // )
 
-  const appBar = {
-    display: 'flex',
-    border: '0',
-    borderRadius: '3px',
-    padding: '0.625rem 0',
-    marginBottom: '20px',
-    color: '#555',
-    width: '100%',
-    backgroundColor: '#fff',
-    boxShadow:
-      '0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)',
-    transition: 'all 150ms ease 0s',
-    alignItems: 'center',
-    flexFlow: 'row nowrap',
-    justifyContent: 'flex-start',
-    position: 'relative',
-    zIndex: 'unset',
-  }
   // If a="zolty" apply styles
   return (
-    <AppBar>
+    <StyledAppBar appbar>
       <IconButton color="inherit" aria-label="open drawer">
         vdf
         <MenuIcon />
       </IconButton>
-    </AppBar>
+    </StyledAppBar>
   )
   // return <Box sx={{ color: 'text.secondary' }}>Sessions</Box>
 }
