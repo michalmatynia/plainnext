@@ -315,7 +315,6 @@ const buttonStyle = {
   },
   disabled: {
     opacity: '0.65',
-    pointerEvents: 'none',
   },
   lg: {
     padding: '1.125rem 2.25rem',

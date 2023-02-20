@@ -43,7 +43,7 @@ const StyledAppBar = styled(AppBar, {
     prop !== 'absolute' &&
     prop !== 'fixed' &&
     prop !== 'ct_color',
-})<StyledAppBarProps>(({ appBar, absolute, fixed, ct_color, theme }) => {
+})<StyledAppBarProps>(({ appBar, absolute, fixed, ct_color }) => {
   let stylesToApplyColor = {}
 
   switch (ct_color) {

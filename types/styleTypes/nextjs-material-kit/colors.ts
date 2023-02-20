@@ -17,3 +17,12 @@ export type AllowedColor =
   | 'white'
   | 'rose'
   | 'dark'
+
+export type SocialMediaAllowedColor =
+  | 'facebook'
+  | 'twitter'
+  | 'google'
+  | 'github'
+
+export type ExtendedAllowedColor =
+  | Omit<AllowedColor, 'dark'> & SocialMediaAllowedColor
