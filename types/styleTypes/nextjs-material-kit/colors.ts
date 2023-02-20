@@ -24,5 +24,4 @@ export type SocialMediaAllowedColor =
   | 'google'
   | 'github'
 
-export type ExtendedAllowedColor =
-  | Omit<AllowedColor, 'dark'> & SocialMediaAllowedColor
+export type ExtendedAllowedColor = AllowedColor & SocialMediaAllowedColor

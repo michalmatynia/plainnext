@@ -1,12 +1,4 @@
-import React, {
-  FC,
-  useState,
-  useEffect,
-  ReactNode,
-  CSSProperties,
-  Ref,
-  forwardRef,
-} from 'react'
+import React, { ReactNode, Ref, forwardRef } from 'react'
 
 import { styled } from '@mui/material/styles'
 import buttonStyle from '../,,/../../../../styles/jss/nextjs-material-kit/components/buttonStyle.js'
@@ -39,7 +31,7 @@ const StyledCustomButton = styled(Button, {
     prop !== 'block' &&
     prop !== 'link' &&
     prop !== 'justIcon',
-})<Omit<Props, 'className' | 'children'>>(
+})<Omit<Props, 'className' | 'children'> & ButtonProps>(
   ({
     ct_color,
     ct_size,
@@ -136,13 +128,13 @@ const RegularButton = forwardRef(function RegularButton(
   ref: Ref<HTMLButtonElement>
 ) {
   const {
-    color,
+    ct_color,
     round,
     children,
     fullWidth,
     disabled,
     simple,
-    size,
+    ct_size,
     block,
     link,
     justIcon,
@@ -151,13 +143,16 @@ const RegularButton = forwardRef(function RegularButton(
   } = props
 
   const btnClasses: BtnClassesProps = {
+    ct_color,
     round,
     fullWidth,
     disabled,
     simple,
+    ct_size,
     block,
     link,
     justIcon,
+    className,
   }
 
   return (
