@@ -1,24 +1,29 @@
+/** @jsxRuntime classic */
+
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/react'
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, useState, useEffect, ReactNode, CSSProperties } from 'react'
-import classNames from 'classnames'
 
 // -------- NEW IMPORTS
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import AppBar, { AppBarProps } from '@mui/material/AppBar'
-import { IconButton } from '@mui/material'
+import { Drawer, Hidden, IconButton, Menu, Toolbar } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { AllowedColor } from '../../../../types/styleTypes/nextjs-material-kit/colors'
 import MenuIcon from '@mui/icons-material/Menu'
 import styles from '../../../../styles/jss/nextjs-material-kit/components/headerStyle.js'
+import Link from 'next/link'
 
 interface Props {
   changeColorOnScroll?: {
     height?: number
-    color?: AllowedColor
+    ct_color?: AllowedColor
   }
-  color?: AllowedColor
+  ct_color?: AllowedColor
   rightLinks?: ReactNode
   leftLinks?: ReactNode
   brand?: string
@@ -26,47 +31,48 @@ interface Props {
   absolute?: boolean
 }
 
-/* EXAMPLE CODE */
-// const CustomSlider = styled(Slider)({
-//   width: 300,
-//   color: 'var(--color)',
-//   '& .MuiSlider-thumb': {
-//     [`&:hover, &.Mui-focusVisible`]: {
-//       boxShadow: '0px 0px 0px 8px var(--box-shadow)',
-//     },
-//     [`&.Mui-active`]: {
-//       boxShadow: '0px 0px 0px 14px var(--box-shadow)',
-//     },
-//   },
-// });
-
-interface StyledAppBarProps
-  extends Omit<AppBarProps, 'classes' | 'color' | 'position'> {
+interface StyledAppBarProps extends AppBarProps {
   appBar?: boolean
   fixed?: boolean
   absolute?: boolean
-  color?: string
+  ct_color?: AllowedColor
 }
-const classes = { appBar: `appBar` }
-
 const StyledAppBar = styled(AppBar, {
   shouldForwardProp: (prop) =>
     prop !== 'appBar' &&
     prop !== 'absolute' &&
     prop !== 'fixed' &&
-    prop !== 'color',
-})<StyledAppBarProps>(({ appBar, absolute, fixed, color, theme }) => {
+    prop !== 'ct_color',
+})<StyledAppBarProps>(({ appBar, absolute, fixed, ct_color, theme }) => {
   let stylesToApplyColor = {}
 
-  switch (color) {
+  switch (ct_color) {
     case 'primary':
       stylesToApplyColor = { ...stylesToApplyColor, ...styles.primary }
       break
     case 'info':
       stylesToApplyColor = { ...stylesToApplyColor, ...styles.info }
       break
-    // add cases for other color values here
-    default:
+    case 'success':
+      stylesToApplyColor = { ...stylesToApplyColor, ...styles.success }
+      break
+    case 'warning':
+      stylesToApplyColor = { ...stylesToApplyColor, ...styles.warning }
+      break
+    case 'danger':
+      stylesToApplyColor = { ...stylesToApplyColor, ...styles.danger }
+      break
+    case 'rose':
+      stylesToApplyColor = { ...stylesToApplyColor, ...styles.rose }
+      break
+    case 'transparent':
+      stylesToApplyColor = { ...stylesToApplyColor, ...styles.transparent }
+      break
+    case 'dark':
+      stylesToApplyColor = { ...stylesToApplyColor, ...styles.dark }
+      break
+    case 'white':
+      stylesToApplyColor = { ...stylesToApplyColor, ...styles.white }
       break
   }
 
@@ -85,35 +91,6 @@ const StyledAppBar = styled(AppBar, {
     }),
     ...stylesToApplyColor,
   }
-  // ...(appBar && {
-  //   [`& .${classes.appBar}`]: {
-  //     position: 'relative',
-  //     color: 'blue',
-  //     // ...styles.appBar,
-  //   },
-  // }),
-  // ...(appBar && {
-  //   position: 'relative',
-  //   ...styles.appBar,
-  // }),
-  // ...(fixed && {
-  //   position: 'fixed',
-  //   ...styles.fixed,
-  // }),
-  // ...(absolute && {
-  //   position: 'absolute',
-  //   ...styles.absolute,
-  // })
-
-  // ...(color === 'primary' && { ...styles.primary }),
-  // ...(color === 'info' && { ...styles.info }),
-
-  // [`& .${classes.active}`]: {
-  //   color: theme.palette.action.hover,
-  //   '& hover': {
-  //     color: 'green',
-  //   },
-  // },
 })
 
 const CreativeTimAppBar: FC<Props> = (
@@ -134,98 +111,81 @@ const CreativeTimAppBar: FC<Props> = (
   const handleDrawerToggle = (): void => {
     setMobileOpen(!mobileOpen)
   }
+
   const headerColorChange = () => {
-    const { color, changeColorOnScroll } = props
+    const { ct_color, changeColorOnScroll } = props
+
+    const DynamicHeaderStyle = css(styles[ct_color])
+    const DynamicHeaderStyleOnScroll = css(styles[changeColorOnScroll.ct_color])
+
     const windowsScrollTop = window.pageYOffset
     if (windowsScrollTop > changeColorOnScroll.height) {
       document.body
         .getElementsByTagName('header')[0]
-        .classList.remove(classes[color])
+        .classList.remove(DynamicHeaderStyle.toString())
       document.body
         .getElementsByTagName('header')[0]
-        .classList.add(classes[changeColorOnScroll.color])
+        .classList.add(DynamicHeaderStyleOnScroll.toString())
     } else {
       document.body
         .getElementsByTagName('header')[0]
-        .classList.add(classes[color])
+        .classList.add(DynamicHeaderStyle.toString())
       document.body
         .getElementsByTagName('header')[0]
-        .classList.remove(classes[changeColorOnScroll.color])
+        .classList.remove(DynamicHeaderStyleOnScroll.toString())
     }
   }
-  // const { color, rightLinks, leftLinks, brand, fixed, absolute } = props
+  const { ct_color, rightLinks, leftLinks, brand, fixed, absolute } = props
+  const brandComponent = (
+    <Link href="/components" as="/components">
+      <Button sx={styles.title as CSSProperties}>{brand}</Button>
+    </Link>
+  )
 
-  // const buttonStyle = {}
-
-  // --------
-  // const appBarClasses = classNames({
-  //   [classes.appBar]: true,
-  //   [classes[color]]: color,
-  //   [classes.absolute]: absolute,
-  //   [classes.fixed]: fixed,
-  // })
-
-  // const brandComponent = (
-  //   <Link href="/components" as="/components">
-  //     <Button className={classes.title}>{brand}</Button>
-  //   </Link>
-  // )
-
-  // If a="zolty" apply styles
   return (
     <StyledAppBar appBar>
-      <IconButton color="inherit" aria-label="open drawer">
-        <MenuIcon />
-      </IconButton>
+      <Toolbar sx={styles.container as CSSProperties}>
+        {leftLinks !== undefined ? brandComponent : null}
+        <Box sx={styles.flex}>
+          {leftLinks !== undefined ? (
+            <Hidden smDown implementation="css">
+              {leftLinks}
+            </Hidden>
+          ) : (
+            brandComponent
+          )}
+        </Box>
+        <Hidden smDown implementation="css">
+          {rightLinks}
+        </Hidden>
+        <Hidden mdUp>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerToggle}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Hidden>
+      </Toolbar>
+      <Hidden mdUp implementation="js">
+        <Drawer
+          variant="temporary"
+          anchor={'right'}
+          open={mobileOpen}
+          sx={{
+            paper: styles.drawerPaper as CSSProperties,
+          }}
+          onClose={handleDrawerToggle}
+        >
+          <Box sx={styles.appResponsive}>
+            {leftLinks}
+            {rightLinks}
+          </Box>
+        </Drawer>
+      </Hidden>
     </StyledAppBar>
   )
-  // return <Box sx={{ color: 'text.secondary' }}>Sessions</Box>
 }
-
-// export default function AppBar(props) {
-
-//   return (
-//     <AppBar className={appBarClasses}>
-//       <Toolbar className={classes.container}>
-//         {leftLinks !== undefined ? brandComponent : null}
-//         <div className={classes.flex}>
-//           {leftLinks !== undefined ? (
-//             <Hidden smDown implementation="css">
-//               {leftLinks}
-//             </Hidden>
-//           ) : (
-//             brandComponent
-//           )}
-//         </div>
-//         <Hidden smDown implementation="css">
-//           {rightLinks}
-//         </Hidden>
-//         <Hidden mdUp>
-
-//         </Hidden>
-//       </Toolbar>
-//       <Hidden mdUp implementation="js">
-//         <Drawer
-//           variant="temporary"
-//           anchor={'right'}
-//           open={mobileOpen}
-//           classes={{
-//             paper: classes.drawerPaper,
-//           }}
-//           onClose={handleDrawerToggle}
-//         >
-//           <div className={classes.appResponsive}>
-//             {leftLinks}
-//             {rightLinks}
-//           </div>
-//         </Drawer>
-//       </Hidden>
-//     </AppBar>
-//   )
-// }
-
-// Header.defaultProp = {
-//   color: 'white',
-// }
 
 export default CreativeTimAppBar

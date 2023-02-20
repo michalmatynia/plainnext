@@ -8,13 +8,13 @@ export default function LandingPage(props: FC): ReactNode {
   return (
     <>
       <CreativeTimAppBar
-        color="transparent"
+        ct_color="rose"
         brand="NextJS Material Kit"
         // rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
           height: 400,
-          color: 'white',
+          ct_color: 'dark',
         }}
         {...rest}
       />

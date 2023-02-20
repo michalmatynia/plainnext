@@ -45,9 +45,11 @@ const headerStyle = {
     justifyContent: 'space-between',
     display: 'flex',
     flexWrap: 'nowrap',
+    color: 'green',
   },
   flex: {
     flex: 1,
+    color: 'pink',
   },
   title: {
     ...defaultFont,
