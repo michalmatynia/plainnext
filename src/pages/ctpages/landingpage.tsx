@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { CreativeTimAppBar } from '@components/ui'
+import { CreativeTimAppBar, CreativeTimParallax } from '@components/ui'
 
 const dashboardRoutes = []
 
@@ -18,6 +18,12 @@ export default function LandingPage(props: FC): ReactNode {
         }}
         {...rest}
       />
+
+      <CreativeTimParallax
+        filter
+        responsive
+        image="/img/landing-bg.jpg"
+      ></CreativeTimParallax>
     </>
   )
 }
