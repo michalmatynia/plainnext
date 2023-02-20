@@ -7,6 +7,7 @@ import React, { FC, ReactNode } from 'react'
 import {
   CT_GridContainer,
   CT_GridItem,
+  CT_CustomButton,
   CreativeTimAppBar,
   CreativeTimParallax,
 } from '@components/ui'
@@ -14,7 +15,7 @@ import styles from '../../..//styles/jss/nextjs-material-kit/pages/landingPage.j
 
 import { Box } from '@mui/material'
 
-const dashboardRoutes = []
+// const dashboardRoutes = []
 
 export default function LandingPage(props: FC): ReactNode {
   const h1Style = css({ ...(styles.title as object) })
@@ -46,16 +47,16 @@ export default function LandingPage(props: FC): ReactNode {
                 impression.
               </h4>
               <br />
-              {/* <Button
-                color="danger"
-                size="lg"
+              <CT_CustomButton
+                ct_color="danger"
+                ct_size="lg"
                 href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="fas fa-play" />
                 Watch video
-              </Button> */}
+              </CT_CustomButton>
             </CT_GridItem>
           </CT_GridContainer>
         </Box>
