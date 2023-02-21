@@ -14,7 +14,7 @@ import createEmotionCache from '@lib/emotion/createEmotionCache'
 
 // import lightThemeOptions from '../../styles/theme/lightThemeOptions'
 // import '../../styles/sass/sa.scss'
-import '/styles/main.scss'
+// import '/styles/main.scss'
 
 // import '../../styles/globals.css'
 import Head from 'next/head'
