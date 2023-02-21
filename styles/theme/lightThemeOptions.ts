@@ -19,13 +19,14 @@ declare module '@mui/material/styles' {
 }
 const lightThemeOptions: ThemeOptions = {
   components: {
-    // MuiCssBaseline: {
-    //   styleOverrides: (themeParam) => `
-    //   body {
-    //     color: ${themeParam.palette.success.main};
-    //   }
-    // `,
-    // },
+    MuiCssBaseline: {
+      styleOverrides: (themeParam) => `
+      body {
+        color: #3c4858;
+        font-weight: 300;
+      }
+    `,
+    },
     // Name of the component
     MuiAppBar: {
       defaultProps: {

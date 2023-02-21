@@ -1,20 +1,42 @@
+/* eslint-disable import/no-named-as-default-member */
 import * as React from 'react'
+import ReactDOM from 'react-dom'
+
 import type { AppProps } from 'next/app'
 import { CacheProvider, EmotionCache } from '@emotion/react'
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material'
 
-import '@fontsource/roboto/300.css'
-import '@fontsource/roboto/400.css'
-import '@fontsource/roboto/500.css'
-import '@fontsource/roboto/700.css'
+// import '@fontsource/roboto/300.css'
+// import '@fontsource/roboto/400.css'
+// import '@fontsource/roboto/500.css'
+// import '@fontsource/roboto/700.css'
 import createEmotionCache from '@lib/emotion/createEmotionCache'
 
 import lightThemeOptions from '../../styles/theme/lightThemeOptions'
-import '../../styles/globals.css'
+import '../../styles/sass/globals.scss'
 import Head from 'next/head'
+import { Router } from 'next/router'
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache
 }
+
+// Logic for loader during Page Transition - Kepp it commented out
+/* Router.events.on('routeChangeStart', (url: string) => {
+  console.log(`Loading: ${url}`)
+  document.body.classList.add('body-page-transition')
+  ReactDOM.render(
+    <PageChange path={url} />,
+    document.getElementById('page-transition')
+  )
+})
+Router.events.on('routeChangeComplete', () => {
+  ReactDOM.unmountComponentAtNode(document.getElementById('page-transition'))
+  document.body.classList.remove('body-page-transition')
+})
+Router.events.on('routeChangeError', () => {
+  ReactDOM.unmountComponentAtNode(document.getElementById('page-transition'))
+  document.body.classList.remove('body-page-transition')
+}) */
 
 const clientSideEmotionCache = createEmotionCache()
 
