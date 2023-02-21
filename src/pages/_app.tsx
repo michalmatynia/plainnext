@@ -14,7 +14,7 @@ import createEmotionCache from '@lib/emotion/createEmotionCache'
 
 // import lightThemeOptions from '../../styles/theme/lightThemeOptions'
 // import '../../styles/sass/sa.scss'
-// import '/styles/main.scss'
+import '/styles/scss/nextjs-material-kit.scss?v=1.2.0'
 
 // import '../../styles/globals.css'
 import Head from 'next/head'
@@ -48,6 +48,7 @@ const clientSideEmotionCache = createEmotionCache()
 const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
+  // const { Component, pageProps } = props
 
   return (
     <>

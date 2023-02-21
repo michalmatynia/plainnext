@@ -11,16 +11,16 @@ import {
   CreativeTimAppBar,
   CreativeTimParallax,
 } from '@components/ui'
-// import styles from '../../..//styles/jss/nextjs-material-kit/pages/landingPage.js'
+import styles from '../../..//styles/jss/nextjs-material-kit/pages/landingPage.js'
 
-// import { Box } from '@mui/material'
+import { Box } from '@mui/material'
 
 // const dashboardRoutes = []
 
 export default function LandingPage(props: FC): ReactNode {
-  //   const h1Style = css({ ...(styles.title as object) })
+  const h1Style = css({ ...(styles.title as object) })
 
-  //   const { ...rest } = props
+  const { ...rest } = props
   return (
     <>
       {/* <CreativeTimAppBar
@@ -33,10 +33,10 @@ export default function LandingPage(props: FC): ReactNode {
           ct_color: 'dark',
         }}
         {...rest}
-      />
+      /> */}
 
       <CreativeTimParallax filter responsive image="/img/landing-bg.jpg">
-        <Box sx={styles.container as typeof styles}>
+        {/* <Box sx={styles.container as typeof styles}>
           <CT_GridContainer>
             <CT_GridItem xs={12} sm={12} md={6}>
               <h1 css={h1Style}>Your Story Starts With Us.</h1>
@@ -59,8 +59,8 @@ export default function LandingPage(props: FC): ReactNode {
               </CT_CustomButton>
             </CT_GridItem>
           </CT_GridContainer>
-        </Box>
-      </CreativeTimParallax> */}
+        </Box> */}
+      </CreativeTimParallax>
     </>
   )
 }

@@ -1,9 +1,14 @@
 import React, { FC, useState, useEffect, ReactNode, CSSProperties } from 'react'
-
+import { Position } from '@mui/system/positions.js'
 import { styled } from '@mui/material/styles'
 
 import styles from '../../../../styles/jss/nextjs-material-kit/components/parallaxStyle.js'
+import { CSSObject, Interpolation } from '@emotion/react'
 
+type EmotionCSSObject = CSSObject & {
+  position?: Interpolation<Position | NonNullable<Position>[] | Position[]> // specify the type for the 'position' property
+}
+type PositionType = EmotionCSSObject['position']
 interface Props {
   className?: string
   filter?: boolean
@@ -11,6 +16,7 @@ interface Props {
   style?: CSSProperties
   small?: boolean
   image?: string
+  parallax: boolean
   // this will add a min-height of 660px on small screens
   responsive?: boolean
 }
@@ -20,22 +26,30 @@ const StyledParallax = styled('div', {
     prop !== 'filter' &&
     prop !== 'style' &&
     prop !== 'small' &&
-    prop !== 'responsive',
-})<Props>(({ filter, style, small, responsive, theme }) => {
+    prop !== 'responsive' &&
+    prop !== 'parallax',
+})<Props>(({ parallax, filter, style, small, responsive, theme }) => {
   const classes = styles(theme) // add this line
 
-  return {
+  const combinedStyles = {
     ...style,
+
+    ...(small && {
+      ...classes.small,
+    }),
     ...(filter && {
       ...classes.filter,
     }),
-    ...(small && {
-      ...classes.small,
+    ...(parallax && {
+      position: 'relative' as PositionType,
+      ...classes.parallax,
     }),
     ...(responsive && {
       ...classes.parallaxResponsive,
     }),
   }
+
+  return combinedStyles
 })
 
 const CreativeTimParallax: FC<Props> = (props): React.ReactElement<Props> => {
@@ -68,6 +82,7 @@ const CreativeTimParallax: FC<Props> = (props): React.ReactElement<Props> => {
       filter={filter}
       small={small}
       responsive={responsive}
+      parallax={true}
       style={{
         ...style,
         backgroundImage: `url('${image}')`,
