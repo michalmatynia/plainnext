@@ -11,19 +11,19 @@ import {
   CreativeTimAppBar,
   CreativeTimParallax,
 } from '@components/ui'
-import styles from '../../..//styles/jss/nextjs-material-kit/pages/landingPage.js'
+// import styles from '../../..//styles/jss/nextjs-material-kit/pages/landingPage.js'
 
-import { Box } from '@mui/material'
+// import { Box } from '@mui/material'
 
 // const dashboardRoutes = []
 
 export default function LandingPage(props: FC): ReactNode {
-  const h1Style = css({ ...(styles.title as object) })
+  //   const h1Style = css({ ...(styles.title as object) })
 
-  const { ...rest } = props
+  //   const { ...rest } = props
   return (
     <>
-      <CreativeTimAppBar
+      {/* <CreativeTimAppBar
         ct_color="rose"
         brand="NextJS Material Kit"
         // rightLinks={<HeaderLinks />}
@@ -60,7 +60,7 @@ export default function LandingPage(props: FC): ReactNode {
             </CT_GridItem>
           </CT_GridContainer>
         </Box>
-      </CreativeTimParallax>
+      </CreativeTimParallax> */}
     </>
   )
 }

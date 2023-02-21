@@ -19,6 +19,13 @@ declare module '@mui/material/styles' {
 }
 const lightThemeOptions: ThemeOptions = {
   components: {
+    // MuiCssBaseline: {
+    //   styleOverrides: (themeParam) => `
+    //   body {
+    //     color: ${themeParam.palette.success.main};
+    //   }
+    // `,
+    // },
     // Name of the component
     MuiAppBar: {
       defaultProps: {
@@ -66,8 +73,14 @@ const lightThemeOptions: ThemeOptions = {
   },
   palette: {
     mode: 'light',
-    action: {
-      hover: 'secondary',
+    // action: {
+    //   hover: 'secondary', // can delete this
+    // },
+    // success: {
+    //   main: '#FF', //
+    // },
+    background: {
+      default: '#e5e5e5',
     },
   },
   breakpoints: {
