@@ -3,7 +3,7 @@
 /** @jsx jsx */
 
 import { css, jsx } from '@emotion/react'
-import React, { FC, ReactNode } from 'react'
+import React, { CSSProperties, FC, ReactNode } from 'react'
 import {
   CT_GridContainer,
   CT_GridItem,
@@ -13,13 +13,21 @@ import {
 } from '@components/ui'
 import styles from '../../..//styles/jss/nextjs-material-kit/pages/landingPage.js'
 
-import { Box } from '@mui/material'
+import ProductSection from '../../../pages-sections/LandingPage-Sections/ProductSection'
 
 // const dashboardRoutes = []
 
-export default function LandingPage(props: FC): ReactNode {
-  const h1Style = css({ ...(styles.title as object) })
+const mainCombined = css({
+  ...(styles.main as CSSProperties),
+  ...(styles.mainRaised as CSSProperties),
+})
 
+const h1Style = css({ ...(styles.title as CSSProperties) })
+
+const divContainer = css({
+  ...(styles.container as CSSProperties),
+})
+export default function LandingPage(props: FC): ReactNode {
   const { ...rest } = props
   return (
     <>
@@ -36,7 +44,7 @@ export default function LandingPage(props: FC): ReactNode {
       />
 
       <CreativeTimParallax filter responsive image="/img/landing-bg.jpg">
-        <Box sx={styles.container as typeof styles}>
+        <div css={divContainer}>
           <CT_GridContainer>
             <CT_GridItem xs={12} sm={12} md={6}>
               <h1 css={h1Style}>Your Story Starts With Us.</h1>
@@ -59,8 +67,13 @@ export default function LandingPage(props: FC): ReactNode {
               </CT_CustomButton>
             </CT_GridItem>
           </CT_GridContainer>
-        </Box>
+        </div>
       </CreativeTimParallax>
+      <div css={mainCombined}>
+        <div css={divContainer}>
+          <ProductSection />
+        </div>
+      </div>
     </>
   )
 }

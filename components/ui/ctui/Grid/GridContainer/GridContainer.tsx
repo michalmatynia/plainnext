@@ -1,10 +1,11 @@
-import React, { FC, ReactNode } from 'react'
+import React, { CSSProperties, FC, ReactNode } from 'react'
 
-import Grid from '@mui/material/Grid'
+import Grid, { GridProps } from '@mui/material/Grid'
 
-interface Props {
+interface Props extends GridProps {
   children?: ReactNode
   className?: string
+  styleProps?: CSSProperties
 }
 
 const styles = {
@@ -17,9 +18,9 @@ const styles = {
 
 const CT_GridContainer: FC<Props> = (props): React.ReactElement => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { children, className, ...rest } = props
+  const { children, className, styleProps, ...rest } = props
   return (
-    <Grid container {...rest} sx={{ ...styles.grid }}>
+    <Grid container {...rest} sx={{ ...styles.grid, ...styleProps }}>
       {children}
     </Grid>
   )

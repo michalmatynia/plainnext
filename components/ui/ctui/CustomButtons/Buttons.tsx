@@ -1,7 +1,7 @@
 import React, { ReactNode, Ref, forwardRef } from 'react'
 
 import { styled } from '@mui/material/styles'
-import buttonStyle from '../,,/../../../../styles/jss/nextjs-material-kit/components/buttonStyle.js'
+import buttonStyle from '../../../../styles/jss/nextjs-material-kit/components/buttonStyle.js'
 import { ExtendedAllowedColor } from 'types/styleTypes/nextjs-material-kit/colors'
 import Button, { ButtonProps } from '@mui/material/Button'
 
