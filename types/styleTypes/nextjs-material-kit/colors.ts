@@ -18,6 +18,13 @@ export type AllowedColor =
   | 'rose'
   | 'dark'
 
+export type AppBarColorSet =
+  | 'inherit'
+  | 'primary'
+  | 'secondary'
+  | 'default'
+  | 'transparent'
+
 export type SocialMediaAllowedColor =
   | 'facebook'
   | 'twitter'

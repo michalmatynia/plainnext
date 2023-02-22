@@ -12,11 +12,9 @@ import { ThemeProvider, CssBaseline, createTheme } from '@mui/material'
 // import '@fontsource/roboto/700.css'
 import createEmotionCache from '@lib/emotion/createEmotionCache'
 
-// import lightThemeOptions from '../../styles/theme/lightThemeOptions'
-// import '../../styles/sass/sa.scss'
+import lightThemeOptions from '../../styles/theme/lightThemeOptions'
 import '/styles/scss/nextjs-material-kit.scss?v=1.2.0'
 
-// import '../../styles/globals.css'
 import Head from 'next/head'
 import { Router } from 'next/router'
 interface MyAppProps extends AppProps {
@@ -43,12 +41,11 @@ Router.events.on('routeChangeError', () => {
 
 const clientSideEmotionCache = createEmotionCache()
 
-// const lightTheme = createTheme(lightThemeOptions);
+const lightTheme = createTheme(lightThemeOptions)
 
 const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
-  // const { Component, pageProps } = props
 
   return (
     <>
@@ -59,10 +56,10 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        {/* <ThemeProvider theme={lightTheme}>
-        <CssBaseline /> */}
-        <Component {...pageProps} />
-        {/* </ThemeProvider> */}
+        <ThemeProvider theme={lightTheme}>
+          {/* <CssBaseline /> */}
+          <Component {...pageProps} />
+        </ThemeProvider>
       </CacheProvider>
     </>
   )

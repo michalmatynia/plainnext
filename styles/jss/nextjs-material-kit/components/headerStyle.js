@@ -15,7 +15,6 @@ import {
 
 const headerStyle = {
   appBar: {
-    position: 'relative',
     display: 'flex',
     border: '0',
     borderRadius: '3px',
@@ -30,6 +29,7 @@ const headerStyle = {
     alignItems: 'center',
     flexFlow: 'row nowrap',
     justifyContent: 'flex-start',
+    position: 'relative',
     zIndex: 'unset',
   },
   absolute: {
@@ -48,11 +48,9 @@ const headerStyle = {
     justifyContent: 'space-between',
     display: 'flex',
     flexWrap: 'nowrap',
-    color: 'green',
   },
   flex: {
     flex: 1,
-    color: 'pink',
   },
   title: {
     ...defaultFont,
