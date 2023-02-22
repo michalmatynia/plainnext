@@ -23,17 +23,17 @@ export default function LandingPage(props: FC): ReactNode {
   const { ...rest } = props
   return (
     <>
-      {/* <CreativeTimAppBar
-        ct_color="rose"
+      <CreativeTimAppBar
+        color="transparent"
         brand="NextJS Material Kit"
         // rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
           height: 400,
-          ct_color: 'dark',
+          color: 'dark',
         }}
         {...rest}
-      /> */}
+      />
 
       <CreativeTimParallax filter responsive image="/img/landing-bg.jpg">
         <Box sx={styles.container as typeof styles}>

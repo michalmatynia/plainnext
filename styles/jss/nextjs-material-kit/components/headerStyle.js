@@ -15,6 +15,7 @@ import {
 
 const headerStyle = {
   appBar: {
+    position: 'relative',
     display: 'flex',
     border: '0',
     borderRadius: '3px',
@@ -32,9 +33,11 @@ const headerStyle = {
     zIndex: 'unset',
   },
   absolute: {
+    position: 'absolute',
     zIndex: '1100',
   },
   fixed: {
+    position: 'fixed',
     zIndex: '1100',
   },
   container: {

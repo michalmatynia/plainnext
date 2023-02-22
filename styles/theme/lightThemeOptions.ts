@@ -28,12 +28,12 @@ const lightThemeOptions: ThemeOptions = {
     // `,
     // },
     // Name of the component
-    MuiAppBar: {
-      defaultProps: {
-        color: 'transparent',
-      },
-      styleOverrides: {},
-    },
+    // MuiAppBar: {
+    //   defaultProps: {
+    //     color: 'transparent',
+    //   },
+    //   styleOverrides: {},
+    // },
     // MuiButtonBase: {
     //   defaultProps: {
     //     // The props to change the default for.

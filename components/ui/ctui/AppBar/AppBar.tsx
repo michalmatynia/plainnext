@@ -21,9 +21,9 @@ import Link from 'next/link'
 interface Props {
   changeColorOnScroll?: {
     height?: number
-    ct_color?: AllowedColor
+    color?: AppBarProps
   }
-  ct_color?: AllowedColor
+  color?: AppBarProps
   rightLinks?: ReactNode
   leftLinks?: ReactNode
   brand?: string
@@ -31,22 +31,22 @@ interface Props {
   absolute?: boolean
 }
 
-interface StyledAppBarProps extends AppBarProps {
+interface StyledAppBarProps {
   appBar?: boolean
   fixed?: boolean
   absolute?: boolean
-  ct_color?: AllowedColor
+  color?: AppBarProps
 }
 const StyledAppBar = styled(AppBar, {
   shouldForwardProp: (prop) =>
     prop !== 'appBar' &&
     prop !== 'absolute' &&
     prop !== 'fixed' &&
-    prop !== 'ct_color',
-})<StyledAppBarProps>(({ appBar, absolute, fixed, ct_color }) => {
+    prop !== 'color',
+})<StyledAppBarProps>(({ appBar, absolute, fixed, color }) => {
   let stylesToApplyColor = {}
 
-  switch (ct_color) {
+  switch (color as AppBarProps) {
     case 'primary':
       stylesToApplyColor = { ...stylesToApplyColor, ...styles.primary }
       break
@@ -78,16 +78,13 @@ const StyledAppBar = styled(AppBar, {
 
   return {
     ...(appBar && {
-      position: 'relative',
-      ...styles.appBar,
+      ...(styles.appBar as AppBarProps),
     }),
     ...(fixed && {
-      position: 'fixed',
-      ...styles.fixed,
+      ...(styles.fixed as AppBarProps),
     }),
     ...(absolute && {
-      position: 'absolute',
-      ...styles.absolute,
+      ...(styles.absolute as AppBarProps),
     }),
     ...stylesToApplyColor,
   }
@@ -98,44 +95,44 @@ const CreativeTimAppBar: FC<Props> = (
 ): React.ReactElement<AppBarProps> => {
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  useEffect(() => {
-    if (props.changeColorOnScroll) {
-      window.addEventListener('scroll', headerColorChange)
-    }
-    return function cleanup() {
-      if (props.changeColorOnScroll) {
-        window.removeEventListener('scroll', headerColorChange)
-      }
-    }
-  })
+  // useEffect(() => {
+  //   if (props.changeColorOnScroll) {
+  //     window.addEventListener('scroll', headerColorChange)
+  //   }
+  //   return function cleanup() {
+  //     if (props.changeColorOnScroll) {
+  //       window.removeEventListener('scroll', headerColorChange)
+  //     }
+  //   }
+  // })
   const handleDrawerToggle = (): void => {
     setMobileOpen(!mobileOpen)
   }
 
-  const headerColorChange = () => {
-    const { ct_color, changeColorOnScroll } = props
+  // const headerColorChange = () => {
+  //   const { ct_color, changeColorOnScroll } = props
 
-    const DynamicHeaderStyle = css(styles[ct_color])
-    const DynamicHeaderStyleOnScroll = css(styles[changeColorOnScroll.ct_color])
+  //   const DynamicHeaderStyle = css(styles[ct_color])
+  //   const DynamicHeaderStyleOnScroll = css(styles[changeColorOnScroll.ct_color])
 
-    const windowsScrollTop = window.pageYOffset
-    if (windowsScrollTop > changeColorOnScroll.height) {
-      document.body
-        .getElementsByTagName('header')[0]
-        .classList.remove(DynamicHeaderStyle.toString())
-      document.body
-        .getElementsByTagName('header')[0]
-        .classList.add(DynamicHeaderStyleOnScroll.toString())
-    } else {
-      document.body
-        .getElementsByTagName('header')[0]
-        .classList.add(DynamicHeaderStyle.toString())
-      document.body
-        .getElementsByTagName('header')[0]
-        .classList.remove(DynamicHeaderStyleOnScroll.toString())
-    }
-  }
-  const { ct_color, rightLinks, leftLinks, brand, fixed, absolute } = props
+  //   const windowsScrollTop = window.pageYOffset
+  //   if (windowsScrollTop > changeColorOnScroll.height) {
+  //     document.body
+  //       .getElementsByTagName('header')[0]
+  //       .classList.remove(DynamicHeaderStyle)
+  //     document.body
+  //       .getElementsByTagName('header')[0]
+  //       .classList.add(DynamicHeaderStyleOnScroll)
+  //   } else {
+  //     document.body
+  //       .getElementsByTagName('header')[0]
+  //       .classList.add(DynamicHeaderStyle)
+  //     document.body
+  //       .getElementsByTagName('header')[0]
+  //       .classList.remove(DynamicHeaderStyleOnScroll)
+  //   }
+  // }
+  const { color, rightLinks, leftLinks, brand, fixed, absolute } = props
   const brandComponent = (
     <Link href="/components" as="/components">
       <Button sx={styles.title as CSSProperties}>{brand}</Button>
@@ -143,7 +140,7 @@ const CreativeTimAppBar: FC<Props> = (
   )
 
   return (
-    <StyledAppBar appBar>
+    <StyledAppBar appBar color={color} fixed={fixed} absolute={absolute}>
       <Toolbar sx={styles.container as CSSProperties}>
         {leftLinks !== undefined ? brandComponent : null}
         <Box sx={styles.flex}>
