@@ -16,7 +16,7 @@ interface Props {
   style?: CSSProperties
   small?: boolean
   image?: string
-  parallax: boolean
+  parallax?: boolean
   // this will add a min-height of 660px on small screens
   responsive?: boolean
 }

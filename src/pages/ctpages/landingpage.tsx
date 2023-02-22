@@ -36,7 +36,7 @@ export default function LandingPage(props: FC): ReactNode {
       /> */}
 
       <CreativeTimParallax filter responsive image="/img/landing-bg.jpg">
-        {/* <Box sx={styles.container as typeof styles}>
+        <Box sx={styles.container as typeof styles}>
           <CT_GridContainer>
             <CT_GridItem xs={12} sm={12} md={6}>
               <h1 css={h1Style}>Your Story Starts With Us.</h1>
@@ -59,7 +59,7 @@ export default function LandingPage(props: FC): ReactNode {
               </CT_CustomButton>
             </CT_GridItem>
           </CT_GridContainer>
-        </Box> */}
+        </Box>
       </CreativeTimParallax>
     </>
   )
