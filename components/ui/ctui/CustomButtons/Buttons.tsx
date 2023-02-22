@@ -3,7 +3,7 @@ import React, { ReactNode, Ref, forwardRef } from 'react'
 import { styled } from '@mui/material/styles'
 import buttonStyle from '../,,/../../../../styles/jss/nextjs-material-kit/components/buttonStyle.js'
 import { ExtendedAllowedColor } from 'types/styleTypes/nextjs-material-kit/colors'
-import Button from '@mui/material/Button'
+import Button, { ButtonProps } from '@mui/material/Button'
 
 interface Props {
   ct_color?: ExtendedAllowedColor
@@ -20,6 +20,7 @@ interface Props {
   href?: string
   target?: string
   rel?: string
+  button?: boolean
 }
 type BtnClassesProps = Omit<Props, 'children'>
 
@@ -33,7 +34,8 @@ const StyledCustomButton = styled(Button, {
     prop !== 'disabled' &&
     prop !== 'block' &&
     prop !== 'link' &&
-    prop !== 'justIcon',
+    prop !== 'justIcon' &&
+    prop !== 'button',
 })<Omit<Props, 'className' | 'children' | 'href' | 'target' | 'rel'>>(
   ({
     ct_color,
@@ -45,6 +47,7 @@ const StyledCustomButton = styled(Button, {
     block,
     link,
     justIcon,
+    button,
   }) => {
     let stylesToApplyColor = {}
 
@@ -121,6 +124,9 @@ const StyledCustomButton = styled(Button, {
       ...(justIcon && {
         ...buttonStyle.justIcon,
       }),
+      ...(button && {
+        ...(buttonStyle.button as ButtonProps),
+      }),
       ...stylesToApplyColor,
     }
   }
@@ -159,7 +165,7 @@ const RegularButton = forwardRef(function RegularButton(
   }
 
   return (
-    <StyledCustomButton {...rest} ref={ref} {...btnClasses}>
+    <StyledCustomButton button {...rest} ref={ref} {...btnClasses}>
       {children}
     </StyledCustomButton>
   )
