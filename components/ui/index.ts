@@ -5,6 +5,8 @@ export { default as CT_GridItem } from './ctui/Grid/GridItem'
 export { default as CT_CustomButton } from './ctui/CustomButtons'
 export { default as CT_InfoArea } from './ctui/InfoArea'
 export { default as CT_Card } from './ctui/Card/Card'
+export { default as CT_CardBody } from './ctui/Card/CardBody'
+export { default as CT_CardFooter } from './ctui/Card/CardFooter'
 
 export { default as MUIBaseAppBar } from './mui/AppBar'
 export { default as EmotionButton } from './emotionui/Button'

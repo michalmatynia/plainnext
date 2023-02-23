@@ -2,12 +2,18 @@
 
 /** @jsx jsx */
 
-import { SerializedStyles, css, jsx } from '@emotion/react'
+import { css, jsx } from '@emotion/react'
 import React, { CSSProperties, FC } from 'react'
 
 import styles from '../../styles/jss/nextjs-material-kit/pages/landingPageSections/teamStyle'
-import styled, { StyledComponent } from '@emotion/styled'
-import { CT_Card, CT_GridContainer, CT_GridItem } from '@components/ui'
+import {
+  CT_Card,
+  CT_CardBody,
+  CT_CardFooter,
+  CT_CustomButton,
+  CT_GridContainer,
+  CT_GridItem,
+} from '@components/ui'
 
 const SectionStyle = css({
   ...(styles.section as CSSProperties),
@@ -15,6 +21,8 @@ const SectionStyle = css({
 const TitleStyle = css({ ...(styles.title as CSSProperties) })
 const CardTitleStyle = css({ ...(styles.cardTitle as CSSProperties) })
 const SmallTitleStyle = css({ ...(styles.smallTitle as CSSProperties) })
+const DescriptionStyle = css({ ...(styles.description as CSSProperties) })
+const SocialsStyle = css({ ...(styles.socials as CSSProperties) })
 
 const imageClasses = css({
   ...(styles.imgRaised as CSSProperties),
@@ -42,37 +50,37 @@ const CT_TeamSection: FC = (): React.ReactElement => {
                 <br />
                 <small css={SmallTitleStyle}>Model</small>
               </h4>
-              {/*  <CardBody>
-                <p className={classes.description}>
+              <CT_CardBody>
+                <p css={DescriptionStyle}>
                   You can write here details about one of your team members. You
                   can give more details about what they do. Feel free to add
                   some <a href="#pablo">links</a> for people to be able to
                   follow them outside the site.
                 </p>
-              </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                <Button
+              </CT_CardBody>
+              <CT_CardFooter styleProps={styles.justifyCenter as CSSProperties}>
+                <CT_CustomButton
                   justIcon
-                  color="transparent"
-                  className={classes.margin5}
+                  ct_color="transparent"
+                  styleProps={styles.margin5 as CSSProperties}
                 >
-                  <i className={classes.socials + ' fab fa-twitter'} />
-                </Button>
-                <Button
+                  <i css={SocialsStyle} className={'fab fa-twitter'} />
+                </CT_CustomButton>
+                <CT_CustomButton
                   justIcon
-                  color="transparent"
-                  className={classes.margin5}
+                  ct_color="transparent"
+                  styleProps={styles.margin5 as CSSProperties}
                 >
-                  <i className={classes.socials + ' fab fa-instagram'} />
-                </Button>
-                <Button
+                  <i css={SocialsStyle} className={'fab fa-instagram'} />
+                </CT_CustomButton>
+                <CT_CustomButton
                   justIcon
-                  color="transparent"
-                  className={classes.margin5}
+                  ct_color="transparent"
+                  styleProps={styles.margin5 as CSSProperties}
                 >
-                  <i className={classes.socials + ' fab fa-facebook'} />
-                </Button>
-              </CardFooter> */}
+                  <i css={SocialsStyle} className={'fab fa-facebook'} />
+                </CT_CustomButton>
+              </CT_CardFooter>
             </CT_Card>
           </CT_GridItem>
           {/* <GridItem xs={12} sm={12} md={4}>

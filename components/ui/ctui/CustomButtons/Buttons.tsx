@@ -1,4 +1,4 @@
-import React, { ReactNode, Ref, forwardRef } from 'react'
+import React, { CSSProperties, ReactNode, Ref, forwardRef } from 'react'
 
 import { styled } from '@mui/material/styles'
 import buttonStyle from '../../../../styles/jss/nextjs-material-kit/components/buttonStyle.js'
@@ -21,6 +21,7 @@ interface Props {
   target?: string
   rel?: string
   button?: boolean
+  styleProps?: CSSProperties
 }
 type BtnClassesProps = Omit<Props, 'children'>
 
@@ -35,7 +36,8 @@ const StyledCustomButton = styled(Button, {
     prop !== 'block' &&
     prop !== 'link' &&
     prop !== 'justIcon' &&
-    prop !== 'button',
+    prop !== 'button' &&
+    prop !== 'styleProps',
 })<Omit<Props, 'className' | 'children' | 'href' | 'target' | 'rel'>>(
   ({
     ct_color,
@@ -48,6 +50,7 @@ const StyledCustomButton = styled(Button, {
     link,
     justIcon,
     button,
+    styleProps,
   }) => {
     let stylesToApplyColor = {}
 
@@ -102,6 +105,9 @@ const StyledCustomButton = styled(Button, {
         break
     }
     return {
+      ...(styleProps && {
+        ...styleProps,
+      }),
       ...(simple && {
         ...buttonStyle.simple,
       }),
