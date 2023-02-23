@@ -52,13 +52,6 @@ const CT_CustomInput: FC<Props> = (props): React.ReactElement => {
     ...(white && styles.whiteInput),
   }
 
-  const inputSX = {
-    input: { ...inputClasses },
-    root: marginTop,
-    disabled: styles.disabled,
-    underline: underlineClasses,
-  }
-
   let formControlClasses = {}
   if (formControlProps !== undefined && 'className' in formControlProps) {
     formControlClasses = {
@@ -68,6 +61,9 @@ const CT_CustomInput: FC<Props> = (props): React.ReactElement => {
   } else {
     formControlClasses = styles.formControl
   }
+
+  console.log(formControlClasses)
+
   return (
     <FormControl
       sx={{ ...styleProps, ...formControlClasses }}
@@ -75,25 +71,26 @@ const CT_CustomInput: FC<Props> = (props): React.ReactElement => {
     >
       {labelText !== undefined ? (
         <InputLabel
-          sx={{ ...(styles.labelRoot as CSSProperties), ...labelClasses }}
-          htmlFor={id}
-          {...labelProps}
+          sx={{ backgroundColor: 'black' }}
+          //   sx={{ ...(styles.labelRoot as CSSProperties), ...labelClasses }}
+          //   htmlFor={id}
+          //   {...labelProps}
         >
           {labelText}
         </InputLabel>
       ) : null}
-      <Input
-        // classes={{
-        //   input: { ...inputClasses },
-        //   //   root: marginTop,
-        //   //   disabled: styles.disabled,
-        //   //   underline: underlineClasses,
-        // }}
-        sx={{ ...inputSX }}
+      {/* <Input
+        sx={{
+          // Styles for the root state
+          '&.MuiInput-input': inputClasses,
+          '&.MuiInput-root': marginTop,
+          '& .MuiInput-underline': underlineClasses,
+          '&.Mui-disabled': styles.disabled,
+        }}
         fullWidth
         id={id}
         {...inputProps}
-      />
+      /> */}
     </FormControl>
   )
 }

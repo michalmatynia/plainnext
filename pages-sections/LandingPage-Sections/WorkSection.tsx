@@ -53,6 +53,9 @@ const CT_WorkSection: FC = (): React.ReactElement => {
                   styleProps={{
                     fullWidth: true,
                   }}
+                  //   formControlProps={{
+                  //     fullWidth: true,
+                  //   }}
                 />
               </CT_GridItem>
               <CT_GridItem xs={12} sm={12} md={6}>
