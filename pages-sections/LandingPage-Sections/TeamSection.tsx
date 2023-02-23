@@ -83,93 +83,103 @@ const CT_TeamSection: FC = (): React.ReactElement => {
               </CT_CardFooter>
             </CT_Card>
           </CT_GridItem>
-          {/* <GridItem xs={12} sm={12} md={4}>
-            <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+          <CT_GridItem xs={12} sm={12} md={4}>
+            <CT_Card plain>
+              <CT_GridItem
+                xs={12}
+                sm={12}
+                md={6}
+                styleProps={styles.itemGrid as CSSProperties}
+              >
                 <img
                   src="/img/faces/christian.jpg"
                   alt="..."
-                  className={imageClasses}
+                  css={imageClasses}
                 />
-              </GridItem>
-              <h4 className={classes.cardTitle}>
+              </CT_GridItem>
+              <h4 css={CardTitleStyle}>
                 Christian Louboutin
                 <br />
-                <small className={classes.smallTitle}>Designer</small>
+                <small css={SmallTitleStyle}>Designer</small>
               </h4>
-              <CardBody>
-                <p className={classes.description}>
+              <CT_CardBody>
+                <p css={DescriptionStyle}>
                   You can write here details about one of your team members. You
                   can give more details about what they do. Feel free to add
                   some <a href="#pablo">links</a> for people to be able to
                   follow them outside the site.
                 </p>
-              </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                <Button
+              </CT_CardBody>
+              <CT_CardFooter styleProps={styles.justifyCenter as CSSProperties}>
+                <CT_CustomButton
                   justIcon
-                  color="transparent"
-                  className={classes.margin5}
+                  ct_color="transparent"
+                  styleProps={styles.margin5 as CSSProperties}
                 >
-                  <i className={classes.socials + ' fab fa-twitter'} />
-                </Button>
-                <Button
+                  <i css={SocialsStyle} className={'fab fa-twitter'} />
+                </CT_CustomButton>
+                <CT_CustomButton
                   justIcon
-                  color="transparent"
-                  className={classes.margin5}
+                  ct_color="transparent"
+                  styleProps={styles.margin5 as CSSProperties}
                 >
-                  <i className={classes.socials + ' fab fa-linkedin'} />
-                </Button>
-              </CardFooter>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                  <i css={SocialsStyle} className={'fab fa-linkedin'} />
+                </CT_CustomButton>
+              </CT_CardFooter>
+            </CT_Card>
+          </CT_GridItem>
+          <CT_GridItem xs={12} sm={12} md={4}>
+            <CT_Card plain>
+              <CT_GridItem
+                xs={12}
+                sm={12}
+                md={6}
+                styleProps={styles.itemGrid as CSSProperties}
+              >
                 <img
                   src="/img/faces/kendall.jpg"
                   alt="..."
-                  className={imageClasses}
+                  css={imageClasses}
                 />
-              </GridItem>
-              <h4 className={classes.cardTitle}>
+              </CT_GridItem>
+              <h4 css={CardTitleStyle}>
                 Kendall Jenner
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small css={SmallTitleStyle}>Model</small>
               </h4>
-              <CardBody>
-                <p className={classes.description}>
+              <CT_CardBody>
+                <p css={DescriptionStyle}>
                   You can write here details about one of your team members. You
                   can give more details about what they do. Feel free to add
                   some <a href="#pablo">links</a> for people to be able to
                   follow them outside the site.
                 </p>
-              </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                <Button
+              </CT_CardBody>
+              <CT_CardFooter styleProps={styles.justifyCenter as CSSProperties}>
+                <CT_CustomButton
                   justIcon
-                  color="transparent"
-                  className={classes.margin5}
+                  ct_color="transparent"
+                  styleProps={styles.margin5 as CSSProperties}
                 >
-                  <i className={classes.socials + ' fab fa-twitter'} />
-                </Button>
-                <Button
+                  <i css={SocialsStyle} className={'fab fa-twitter'} />
+                </CT_CustomButton>
+                <CT_CustomButton
                   justIcon
-                  color="transparent"
-                  className={classes.margin5}
+                  ct_color="transparent"
+                  styleProps={styles.margin5 as CSSProperties}
                 >
-                  <i className={classes.socials + ' fab fa-instagram'} />
-                </Button>
-                <Button
+                  <i css={SocialsStyle} className={'fab fa-instagram'} />
+                </CT_CustomButton>
+                <CT_CustomButton
                   justIcon
-                  color="transparent"
-                  className={classes.margin5}
+                  ct_color="transparent"
+                  styleProps={styles.margin5 as CSSProperties}
                 >
-                  <i className={classes.socials + ' fab fa-facebook'} />
-                </Button>
-              </CardFooter>
-            </Card>*/}
-          {/* </CT_GridItem> */}
+                  <i css={SocialsStyle} className={'fab fa-facebook'} />
+                </CT_CustomButton>
+              </CT_CardFooter>
+            </CT_Card>
+          </CT_GridItem>
         </CT_GridContainer>
       </div>
     </div>

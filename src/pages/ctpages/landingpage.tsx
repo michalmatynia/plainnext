@@ -15,6 +15,7 @@ import styles from '../../..//styles/jss/nextjs-material-kit/pages/landingPage.j
 
 import ProductSection from '../../../pages-sections/LandingPage-Sections/ProductSection'
 import TeamSection from '../../../pages-sections/LandingPage-Sections/TeamSection'
+import WorkSection from '../../../pages-sections/LandingPage-Sections/WorkSection'
 
 // const dashboardRoutes = []
 
@@ -74,6 +75,7 @@ export default function LandingPage(props: FC): ReactNode {
         <div css={divContainer}>
           <ProductSection />
           <TeamSection />
+          <WorkSection />
         </div>
       </div>
     </>
