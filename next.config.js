@@ -13,6 +13,17 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  // If I have links on images
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'example.com',
+  //       port: '',
+  //       pathname: '/account123/**',
+  //     },
+  //   ],
+  // },
 }
 
 module.exports = nextConfig

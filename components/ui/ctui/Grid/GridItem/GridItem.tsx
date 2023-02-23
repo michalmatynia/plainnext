@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import React, { CSSProperties, FC, ReactNode } from 'react'
 
 import Grid, { GridProps } from '@mui/material/Grid'
 
@@ -16,13 +16,15 @@ const styles = {
 interface StyledGridProps extends GridProps {
   children?: ReactNode
   className?: string
+  styleProps?: CSSProperties
 }
 
 const CT_GridItem: FC<StyledGridProps> = (props): React.ReactElement => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { children, className, ...rest } = props
+  const { children, className, styleProps, ...rest } = props
+
   return (
-    <Grid item {...rest} sx={styles.grid}>
+    <Grid item {...rest} sx={{ ...styles.grid, ...styleProps }}>
       {children}
     </Grid>
   )

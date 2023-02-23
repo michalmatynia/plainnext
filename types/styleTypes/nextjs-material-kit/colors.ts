@@ -6,6 +6,15 @@ bardziej zaawansowane type
 //   component?: ElementType,
 //   [key:string]: string,
 // }
+export type BasicColor =
+  | 'primary'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'rose'
+
+export type InfoAreaColor = BasicColor | 'gray'
 
 export type AllowedColor =
   | 'primary'

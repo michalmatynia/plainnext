@@ -1,14 +1,8 @@
 import React, { FC, useState, useEffect, ReactNode, CSSProperties } from 'react'
-import { Position } from '@mui/system/positions.js'
 import { styled } from '@mui/material/styles'
 
 import styles from '../../../../styles/jss/nextjs-material-kit/components/parallaxStyle.js'
-import { CSSObject, Interpolation } from '@emotion/react'
 
-type EmotionCSSObject = CSSObject & {
-  position?: Interpolation<Position | NonNullable<Position>[] | Position[]> // specify the type for the 'position' property
-}
-type PositionType = EmotionCSSObject['position']
 interface Props {
   className?: string
   filter?: boolean
@@ -41,8 +35,7 @@ const StyledParallax = styled('div', {
       ...classes.filter,
     }),
     ...(parallax && {
-      position: 'relative' as PositionType,
-      ...classes.parallax,
+      ...(classes.parallax as CSSProperties),
     }),
     ...(responsive && {
       ...classes.parallaxResponsive,

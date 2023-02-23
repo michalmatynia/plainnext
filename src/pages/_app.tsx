@@ -1,10 +1,9 @@
 /* eslint-disable import/no-named-as-default-member */
 import * as React from 'react'
-import ReactDOM from 'react-dom'
 
 import type { AppProps } from 'next/app'
 import { CacheProvider, EmotionCache } from '@emotion/react'
-import { ThemeProvider, CssBaseline, createTheme } from '@mui/material'
+import { ThemeProvider, createTheme } from '@mui/material'
 
 // This below is required, no font withouth it
 import '@fontsource/roboto/300.css'
